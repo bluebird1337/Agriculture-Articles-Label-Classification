@@ -19,7 +19,7 @@
 
 Team Member : Alison Chi, Daniel Kong, Hong-Wen Wang, Yung-Yu Shi, Drew Cavicchi\
 Final Rank : **13**/118\
-Public F-Score : **0.68** (13/118)\
+Public F-Score : **0.68** (13/118)
 
 ## Abstract
 
@@ -49,6 +49,9 @@ We used “Ckip” an open-source library that implements neural Chinese NLP too
 Using basic TF-IDF with Cosine Similarity yielded our best results. Our first attempts with simple preprocessing and roughly .75% confidence threshold yielded f-scores of around .38. Our major adjustments included making sure key words were included in the corpus, adjusting the weight of key words by adjusting the number of ccurrences per document, and by parameter tuning. We also detected county and location names in the documents and added occurrences using the same method as we did with key words. 
 Overall, these techniques improved our score to .5 on the public test data, and .48 on the private test data. We found that the most important factors to improving the score were by far the threshold, number of keyword occurrences added, and number of location occurrences added. After some analysis of results and adjustments of preprocessing, we found our best combination to be a threshold of roughly .7, around 20 additional keyword occurrences, and 8 additional location occurrences.
 
+Token tf-idf mean score
+![alt text](https://github.com/bluebird1337/Agriculture-Articles-Label-Classification/blob/main/cosine_similarity.png "Token tf-idf mean score")
+
 2. Jaccard Similarity
 
 We modified some parts of our preprocessing to facilitate the use of Jaccard. Same as before, we removed the punctuation and the stopwords. We then replaced all related synonyms provided by the organizer with the first word in the provided keyword lists. Next, we used Ckip to tokenize and the Jaccard similarity method to compute the similarity between two text documents. Finally, experimented with thresholds to filter out the data we don't want. The best result we got was about 0.42.
@@ -60,6 +63,9 @@ We took a look at the top 50 TF-IDF features for all documents on average and fo
 4. Results Evaluation
 
 In addition, we have also used a confusion matrix to evaluate the quality of the output of a classifier on this dataset. By the way, the TF might be “N/A” instead of 0 because its probability is not useful for our prediction (but the plot package does not allow us to modify this way)
+
+Confusion Matrix
+![alt text](https://github.com/bluebird1337/Agriculture-Articles-Label-Classification/blob/main/confusion_matrix.png "Confusion Matrix")
 
 ---
 
